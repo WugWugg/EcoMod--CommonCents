@@ -10,4 +10,13 @@
     <PackageReference Include="Eco.ReferenceAssemblies" Version="0.13.0-beta-release-998" />
   </ItemGroup>
 
+	<PropertyGroup>
+		<!-- Point this at your Eco source server Mods/UserCode -->
+		<EcoModsDir>C:\Program Files (x86)\Steam\steamapps\common\Eco Server\Mods\UserCode</EcoModsDir>
+	</PropertyGroup>
+
+	<Target Name="CopyModToEco" AfterTargets="Build">
+		<Copy SourceFiles="$(TargetPath)" DestinationFolder="$(EcoModsDir)" SkipUnchangedFiles="true" />
+		<Copy SourceFiles="$(TargetDir)$(TargetName).pdb" DestinationFolder="$(EcoModsDir)" SkipUnchangedFiles="true" Condition="Exists('$(TargetDir)$(TargetName).pdb')" />
+	</Target>
 </Project>
