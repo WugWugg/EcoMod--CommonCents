@@ -29,7 +29,7 @@ namespace CommonCents
     [SupportedOSPlatform("windows7.0")]
     public class CommonCentsPlugin : IModKitPlugin, IInitializablePlugin, IShutdownablePlugin
     {
-        public const string VERSION = "v0.2.0";
+        public const string VERSION = "v0.2.1";
         public const string NAME = "CommonCents";
         /// <summary>
         /// Maps Store IDs to last warning state. See: ComputeFingerprint. Used to trigger warnings ONLY on state change.
@@ -354,7 +354,7 @@ namespace CommonCents
             {
                 var offer = RelatedOffers.First();
                 if (offer == null) return "<Error: A problem happened when trying to print this variable>";
-                var offerName = offer.IsTagOffer ? offer.Tag.MarkedUpName : offer.Stack.Item.Name;
+                var offerName = offer.IsTagOffer ? offer.Tag.MarkedUpName : offer.Stack.Item.MarkedUpName;
                 var delta = Math.Abs(offer.Price - TaggedOffer.Price);
                 var sb = new LocStringBuilder();
                 sb.AppendLoc($"Selling {TaggedOffer.Tag.MarkedUpName} and buying {offerName} loses ");
