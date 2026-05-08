@@ -14,6 +14,11 @@ namespace CommonCents
         [ChatCommand("commoncents", ChatAuthorizationLevel.Moderator)]
         public static void commoncents(IChatClient chat)
         {
+        }
+
+        [ChatSubCommand("commoncents", "Prints the mod version.", ChatAuthorizationLevel.Moderator)]
+        public static void version(IChatClient chat) 
+        {
             chat.MsgLoc($"Version: {CommonCentsPlugin.VERSION}");
         }
     }

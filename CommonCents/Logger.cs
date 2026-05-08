@@ -9,19 +9,17 @@ using System.Text;
 
 namespace CommonCents
 {
+    [SupportedOSPlatform("windows7.0")]
     static class Logger
     {
-        const string NAME = "CommonCents";
 
         [Conditional("DEBUG")]
         public static void Debug(string message)
         {
-            NLogManager.GetEcoLogWriter().Write($"[{NAME}] {message}\n");
+            NLogManager.GetEcoLogWriter().Write($"[{CommonCentsPlugin.NAME}] {message}\n");
         }
 
         [Conditional("DEBUG")]
-        [SupportedOSPlatform("windows7.0")]
-
         public static void NewsFeed(string message)
         {
             NotificationManager.ServerMessageToAll(Localizer.DoStr(message));
@@ -29,7 +27,7 @@ namespace CommonCents
 
         public static void Info(string message)
         {
-            NLogManager.GetEcoLogWriter().Write($"[{NAME}] {message}\n");
+            NLogManager.GetEcoLogWriter().Write($"[{CommonCentsPlugin.NAME}] {message}\n");
         }
     }
 }
