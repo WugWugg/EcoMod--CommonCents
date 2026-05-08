@@ -357,7 +357,13 @@ namespace CommonCents
                 var offerName = offer.IsTagOffer ? offer.Tag.MarkedUpName : offer.Stack.Item.MarkedUpName;
                 var delta = Math.Abs(offer.Price - TaggedOffer.Price);
                 var sb = new LocStringBuilder();
-                sb.AppendLoc($"Selling {TaggedOffer.Tag.MarkedUpName} and buying {offerName} loses ");
+                sb.AppendLoc($"Selling ");
+                if (IsBuying) sb.Append(offerName);
+                else sb.Append(TaggedOffer.Tag.MarkedUpName);
+                sb.AppendLoc($" and buying ");
+                if (IsBuying) sb.Append(TaggedOffer.Tag.MarkedUpName);
+                else sb.Append(offerName);
+                sb.AppendLocStr(" loses ");
                 sb.Append(TextLoc.ErrorLoc($"{delta:0.00}"));
                 sb.AppendLocStr(" per trade.");
                 return sb.ToString();
