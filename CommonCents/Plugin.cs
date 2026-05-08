@@ -29,7 +29,7 @@ namespace CommonCents
     [SupportedOSPlatform("windows7.0")]
     public class CommonCentsPlugin : IModKitPlugin, IInitializablePlugin, IShutdownablePlugin
     {
-        public const string VERSION = "v0.1.1";
+        public const string VERSION = "v0.2.0";
         public const string NAME = "CommonCents";
         /// <summary>
         /// Maps Store IDs to last warning state. See: ComputeFingerprint. Used to trigger warnings ONLY on state change.
